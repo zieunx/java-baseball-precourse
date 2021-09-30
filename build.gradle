@@ -1,11 +1,21 @@
 plugins {
     id 'java'
+    id 'org.ec4j.editorconfig' version '0.0.3'
 }
 
 group 'camp.nextstep.edu'
 version '1.0.0'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+editorconfig {
+    excludes = ['build']
+}
+
+check.dependsOn editorconfigCheck
 
 repositories {
     mavenCentral()
