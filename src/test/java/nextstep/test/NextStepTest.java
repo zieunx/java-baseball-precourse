@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 
 import org.assertj.core.util.Strings;
 
-public abstract class NnSsTest {
+public abstract class NextStepTest {
 	private PrintStream standardOut;
 	private OutputStream captor;
 

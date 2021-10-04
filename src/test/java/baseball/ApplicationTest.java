@@ -7,10 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
-import nextstep.test.NnSsTest;
+import nextstep.test.NextStepTest;
 import nextstep.utils.Randoms;
 
-public class ApplicationTest extends NnSsTest {
+public class ApplicationTest extends NextStepTest {
 	@BeforeEach
 	void beforeEach() {
 		super.setUp();
