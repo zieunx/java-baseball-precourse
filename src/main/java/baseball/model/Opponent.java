@@ -1,6 +1,5 @@
-package baseball.player;
+package baseball.model;
 
-import baseball.game.BaseBallRules;
 import nextstep.utils.Randoms;
 
 public class Opponent {

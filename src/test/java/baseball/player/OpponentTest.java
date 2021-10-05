@@ -5,7 +5,8 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import baseball.game.BaseBallRules;
+import baseball.model.BaseBallRules;
+import baseball.model.Opponent;
 
 public class OpponentTest {
 

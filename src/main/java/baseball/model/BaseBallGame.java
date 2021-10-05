@@ -1,44 +1,41 @@
-package baseball.game;
-
-import baseball.player.Opponent;
-import baseball.player.User;
+package baseball.model;
 
 public class BaseBallGame {
 
+	static final int START_GAME_CODE = 1;
+
+	private boolean isSuccess;
+	private int gameState = START_GAME_CODE;
 	private User user;
 	private Opponent opponent;
 
-	static final int START_GAME_CODE = 1;
-
-	static int gameState = START_GAME_CODE;
-	static boolean isCorrect = false;
-
-	public void run() {
-		while (gameState == START_GAME_CODE) {
-			isCorrect = false;
-			gameState = START_GAME_CODE;
-			user = new User();
-			opponent = new Opponent();
-			playGame();
-		}
+	public boolean isContinue() {
+		return START_GAME_CODE == gameState;
 	}
 
-	private void playGame() {
-		while (!isCorrect) {
+	public void play() {
+		reset();
+
+		while (!isSuccess) {
 			nextRound();
 		}
 		System.out.println(BaseBallRules.SIZE + "개의 숫자를 모두 맞히셨습니다! 게임 끝");
-
-		gameState = isContinue();
 	}
 
-	private int isContinue() {
+	public void checkContinue() {
 		String input = "";
 		while (!input.equals("1") && !input.equals("2")) {
 			System.out.println("게임을 새로 시작하려면 1,종료하려면 2를 입력하세요.");
 			input = user.readLine();
 		}
-		return Integer.parseInt(input);
+		gameState = Integer.parseInt(input);
+	}
+
+	private void reset() {
+		isSuccess = false;
+		gameState = START_GAME_CODE;
+		user = new User();
+		opponent = new Opponent();
 	}
 
 	private void nextRound() {
@@ -52,6 +49,6 @@ public class BaseBallGame {
 		String result = BaseBallRules.compare(opponent.getNumber(), user.getNumber());
 		System.out.println(result);
 
-		isCorrect = result.equals(BaseBallRules.SIZE + "스트라이크");
+		isSuccess = result.equals(BaseBallRules.SIZE + "스트라이크");
 	}
 }

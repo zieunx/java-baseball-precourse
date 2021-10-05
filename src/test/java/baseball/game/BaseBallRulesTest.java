@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import baseball.model.BaseBallRules;
+
 public class BaseBallRulesTest {
 
 	@DisplayName("validateNumber 검증하기")

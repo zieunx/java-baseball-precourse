@@ -1,4 +1,4 @@
-package baseball.player;
+package baseball.model;
 
 import nextstep.utils.Console;
 
