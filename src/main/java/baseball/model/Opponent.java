@@ -18,19 +18,19 @@ public class Opponent {
 		StringBuilder stringBuilder = new StringBuilder();
 
 		while (stringBuilder.length() != BaseBallRules.SIZE) {
-			stringBuilder.append(makeRandomNumber());
+			makeRandomNumber(stringBuilder);
 		}
 
 		return stringBuilder.toString();
 	}
 
-	private String makeRandomNumber() {
+	private void makeRandomNumber(StringBuilder stringBuilder) {
 		int numberInRange = Randoms.pickNumberInRange(BaseBallRules.MIN, BaseBallRules.MAX);
 
-		if (number != null && number.contains(String.valueOf(numberInRange))) {
-			return makeRandomNumber();
+		if (stringBuilder.toString().contains(String.valueOf(numberInRange))) {
+			return;
 		}
 
-		return String.valueOf(numberInRange);
+		stringBuilder.append(numberInRange);
 	}
 }
