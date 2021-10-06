@@ -1,16 +1,16 @@
 package baseball.model;
 
+import baseball.type.GameState;
+
 public class BaseBallGame {
 
-	static final int START_GAME_CODE = 1;
-
 	private boolean isSuccess;
-	private int gameState = START_GAME_CODE;
+	private GameState gameState = GameState.START;
 	private User user;
 	private Opponent opponent;
 
 	public boolean isContinue() {
-		return START_GAME_CODE == gameState;
+		return GameState.START == gameState;
 	}
 
 	public void play() {
@@ -23,17 +23,21 @@ public class BaseBallGame {
 	}
 
 	public void checkContinue() {
-		String input = "";
-		while (!input.equals("1") && !input.equals("2")) {
-			System.out.println("게임을 새로 시작하려면 1,종료하려면 2를 입력하세요.");
-			input = user.readLine();
+		String code = "";
+		while (!GameState.hasCode(code)) {
+			code = readGameState();
 		}
-		gameState = Integer.parseInt(input);
+		gameState = GameState.findByCode(code);
+	}
+
+	private String readGameState() {
+		System.out.println("게임을 새로 시작하려면 1,종료하려면 2를 입력하세요.");
+		return user.readLine();
 	}
 
 	private void reset() {
 		isSuccess = false;
-		gameState = START_GAME_CODE;
+		gameState = GameState.START;
 		user = new User();
 		opponent = new Opponent();
 	}
