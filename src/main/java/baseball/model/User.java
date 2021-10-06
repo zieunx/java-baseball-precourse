@@ -14,7 +14,7 @@ public class User {
 		return Console.readLine();
 	}
 
-	public String getReadNumber() {
+	public String readNumber() {
 		number = Console.readLine();
 		return getNumber();
 	}
